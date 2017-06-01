@@ -13,7 +13,10 @@ import junit.framework.TestCase;
 @RunWith(JUnit4.class)
 public abstract class LocalDatastoreTestCase extends TestCase {
 	 
-    private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
+    private final LocalServiceTestHelper helper = new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig()
+    		//.setNoStorage(false) si descomentamos esto guarda en fichero
+    		//.setBackingStoreLocation("storagefilelocation")
+    		);
  
     @Before
     public void setUp() {
