@@ -24,7 +24,7 @@ public class SigningServiceTest extends LocalDatastoreTestCase {
 
 
 	@Test
-	public void test() {
+	public void testSave() {
 		
 		SigningLog data = new SigningLog();
 		data.setId(new Random(System.currentTimeMillis()).nextLong());
@@ -32,6 +32,20 @@ public class SigningServiceTest extends LocalDatastoreTestCase {
 		data.setType(SignType.IN);
 		data.setDate(new Date(System.currentTimeMillis()));
 		service.save(data );
+	}
+	
+	
+	@Test
+	public void testFindByUser() {
+		SigningLog data = new SigningLog();
+		data.setId(new Random(System.currentTimeMillis()).nextLong());
+		data.setUser("anUser");
+		data.setType(SignType.IN);
+		data.setDate(new Date(System.currentTimeMillis()));
+		service.save(data );
+		
+		assertFalse(service.findByUser("anUser").isEmpty());
+		
 	}
 
 }
