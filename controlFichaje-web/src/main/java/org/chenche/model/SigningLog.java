@@ -15,7 +15,7 @@ public class SigningLog {
 	public enum SignType {IN,OUT}
 	
 	@Id
-	private long id;
+	private Long id;
 	
 	private String user;
 	
